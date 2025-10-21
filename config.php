@@ -1,0 +1,25 @@
+<?php
+// Database configuration
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'ai_platform');
+
+// Email configuration - XAMPP compatible
+define('ADMIN_EMAIL', 'adam.zarhouni.aissaoui@ieselcalamot.com');
+define('SMTP_HOST', 'localhost');
+define('SMTP_PORT', 25);
+
+define('USE_ALTERNATIVE_EMAIL', true);
+define('ALTERNATIVE_EMAIL_SERVICE', 'file'); // 'file', 'log', or 'smtp'
+
+// Create connection
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+// Check connection
+if ($conn->connect_error) {
+    die(json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos']));
+}
+
+$conn->set_charset("utf8");
+?>
